@@ -1,3 +1,8 @@
+body {
+  background: #181a1b;
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+}
+
 #root {
   max-width: 100%;
   margin: 0 auto;
@@ -42,85 +47,165 @@
 }
 
 .todo-container {
-  max-width: 800px;
-  width: 100%;
-  margin: 20px auto;
-  padding: 2rem;
-  background: #c9baba;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  text-align: center;
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 0;
+  background: #23272a;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  text-align: left;
+  overflow: hidden;
 }
+
+h1 {
+  font-size: 2.2em;
+  color: #f1f1f1;
+  margin: 0 0 24px 0;
+  padding: 32px 32px 0 32px;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.auth-container {
+  padding: 40px 32px 32px 32px;
+  background: #23272a;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  margin: 40px auto;
+  max-width: 400px;
+}
+
 .todo-form {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.5rem;
-  margin-bottom: 1rem;
+  padding: 0 32px 24px 32px;
+  background: none;
 }
 .todo-form input {
-  flex: 1;
-  padding: 0.5rem;
-  border: 1.5px solid #bbb;
-  border-radius: 4px;
-  background: #fff;
-  color: #222;
+  flex: 1 1 120px;
+  padding: 0.5rem 0.75rem;
+  border: 1.5px solid #444b53;
+  border-radius: 6px;
+  background: #2c2f34;
+  color: #f1f1f1;
   font-size: 1rem;
+  margin-bottom: 0.5rem;
+  transition: border 0.2s, background 0.2s;
 }
 .todo-form input:focus {
   outline: none;
-  border-color: #007bff;
+  border-color: #3399ff;
+  background: #23272a;
 }
 .todo-form button {
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1.5rem;
   border: none;
-  background: #007bff;
+  background: #3399ff;
   color: #fff;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
-  font-weight: bold;
+  font-weight: 600;
+  font-size: 1rem;
   transition: background 0.2s;
+  margin-bottom: 0.5rem;
 }
 .todo-form button:hover {
-  background: #0056b3;
+  background: #1976d2;
 }
+
+.filter-bar {
+  padding: 0 32px 16px 32px;
+  display: flex;
+  gap: 0.5rem;
+  background: none;
+}
+.filter-bar input, .filter-bar select {
+  padding: 0.4rem 0.7rem;
+  border: 1.5px solid #444b53;
+  border-radius: 6px;
+  background: #2c2f34;
+  color: #f1f1f1;
+  font-size: 1rem;
+}
+
 .todo-list {
   list-style: none;
-  padding: 0;
+  padding: 0 32px 32px 32px;
   margin: 0;
 }
 .todo-item {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 0.75rem 1rem;
-  margin-bottom: 0.5rem;
-  background: #fff;
-  color: #222;
-  border-radius: 4px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
-  border: 1px solid #eee;
+  padding: 1rem 0.75rem;
+  margin-bottom: 0.75rem;
+  background: #23272a;
+  color: #f1f1f1;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+  border: 1px solid #2c2f34;
+  transition: box-shadow 0.2s, background 0.2s;
+}
+.todo-item:hover {
+  background: #2c2f34;
+  box-shadow: 0 2px 8px rgba(51,153,255,0.08);
+}
+.todo-item input[type="checkbox"] {
+  margin-right: 16px;
+  width: 18px;
+  height: 18px;
+  accent-color: #3399ff;
+}
+.todo-item button {
+  margin-left: 8px;
+  padding: 0.3rem 0.9rem;
+  font-size: 0.98em;
+  border-radius: 6px;
+  border: none;
+  background: #444b53;
+  color: #f1f1f1;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+.todo-item button:hover {
+  background: #3399ff;
+  color: #fff;
 }
 .delete-btn {
   background: #dc3545;
   color: #fff;
   border: none;
-  border-radius: 4px;
-  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+  padding: 0.3rem 0.9rem;
   cursor: pointer;
-  font-weight: bold;
+  font-weight: 600;
   transition: background 0.2s;
 }
 .delete-btn:hover {
   background: #a71d2a;
 }
 .error {
-  color: #dc3545;
-  margin-bottom: 1rem;
+  color: #ff7675;
+  margin: 0 32px 1rem 32px;
   font-weight: bold;
+  font-size: 1.05em;
 }
 
 @media (max-width: 700px) {
   .todo-container {
     max-width: 98vw;
-    padding: 1rem;
+    padding: 0;
+  }
+  .todo-form, .filter-bar, .todo-list {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  h1 {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  .auth-container {
+    padding: 24px 8px 16px 8px;
   }
 }
